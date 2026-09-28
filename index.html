@@ -20,7 +20,7 @@
         margin: auto;
         padding: 16px 14px 35px;
     }
-    /* FOTOĞRAF */
+    /* ANA FOTOĞRAF */
     .hero {
         position: relative;
         width: 100%;
@@ -34,7 +34,8 @@
     .hero img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        object-position: center top;
         display: block;
     }
     .hero-overlay {
@@ -42,10 +43,10 @@
         left: 0;
         right: 0;
         bottom: 0;
-        padding: 55px 20px 18px;
+        padding: 65px 20px 18px;
         background: linear-gradient(
             transparent,
-            rgba(0,0,0,0.75)
+            rgba(0,0,0,0.78)
         );
         color: white;
     }
@@ -60,9 +61,9 @@
         opacity: 0.9;
         letter-spacing: 1px;
     }
-    /* KART */
+    /* KARTLAR */
     .card {
-        background: rgba(255,255,255,0.94);
+        background: rgba(255,255,255,0.95);
         border: 1px solid rgba(255,255,255,0.8);
         border-radius: 22px;
         padding: 19px;
@@ -81,7 +82,7 @@
     .name {
         font-size: 23px;
         font-weight: 750;
-        margin-bottom: 14px;
+        margin-bottom: 8px;
     }
     /* BANKA */
     .bank-box {
@@ -101,8 +102,9 @@
         font-weight: 700;
         letter-spacing: 0.2px;
         word-break: break-all;
+        line-height: 1.5;
     }
-    /* BUTON */
+    /* BUTONLAR */
     .copy-button,
     .action-button {
         display: flex;
@@ -152,13 +154,13 @@
         font-size: 12px;
         margin-top: 20px;
     }
-    /* TELEFON EKRANI */
+    /* TELEFON */
     @media (max-width: 480px) {
         .container {
             padding: 12px 12px 30px;
         }
         .hero {
-            height: 270px;
+            height: 250px;
             border-radius: 21px;
         }
         .hero-title {
@@ -191,13 +193,24 @@
             </div>
         </div>
     </div>
-    <!-- İSİM + IBAN -->
+    <!-- ÖDEME BİLGİLERİ -->
     <div class="card">
         <div class="section-title">
             Ödeme Bilgileri
         </div>
+        <!-- İSİM -->
         <div class="name">
             Uğur Gençol
+        </div>
+        <button class="copy-button"
+                onclick="copyText(
+                'Uğur Gençol',
+                'nameSuccess'
+                )">
+            👤 İsmi Kopyala
+        </button>
+        <div id="nameSuccess" class="success">
+            İsim kopyalandı ✓
         </div>
         <!-- AKBANK -->
         <div class="bank-box">
@@ -243,33 +256,38 @@
         <div class="section-title">
             İletişim
         </div>
+        <!-- CEP TELEFONU -->
         <a class="action-button"
            href="tel:+905326031821">
             <span class="icon">📱</span>
             0532 603 18 21
         </a>
+        <!-- SABİT TELEFON -->
         <a class="action-button"
            href="tel:+902164966452">
             <span class="icon">☎️</span>
             0216 496 64 52
         </a>
+        <!-- E-POSTA -->
         <a class="action-button"
            href="mailto:ugencol@hotmail.com">
             <span class="icon">✉️</span>
             ugencol@hotmail.com
         </a>
     </div>
-    <!-- KONUM + INSTAGRAM -->
+    <!-- KONUM VE INSTAGRAM -->
     <div class="card">
         <div class="section-title">
             Bizi Bul
         </div>
+        <!-- GOOGLE MAPS -->
         <a class="action-button"
            href="https://maps.app.goo.gl/Min1gendfTK84PFs8?g_st=ic"
            target="_blank">
             <span class="icon">📍</span>
             Google Maps'te Konumu Aç
         </a>
+        <!-- INSTAGRAM -->
         <a class="action-button"
            href="https://www.instagram.com/aku_dunyasi_ugur_otomotiv?stkn=MTQxMGl5aHIxZzE1OQ=="
            target="_blank">
