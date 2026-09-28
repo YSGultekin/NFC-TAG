@@ -1,214 +1,181 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Uğur Otomotiv</title>
 <style>
-    :root {
-        --lacivert: #0b1f3a;
-        --mavi: #1769aa;
-        --kirmizi: #e63946;
-        --acik-mavi: #eef6ff;
-        --metin: #172033;
-        --gri: #64748b;
-        --basari: #16803c;
-        --hata: #b42318;
-    }
-    * {
-        box-sizing: border-box;
-    }
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, var(--lacivert), #123d68);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 20px;
-    }
-    .kart {
-        width: 100%;
-        max-width: 420px;
-        background: #ffffff;
-        padding: 34px 24px 30px;
-        border-radius: 22px;
-        border-top: 7px solid var(--kirmizi);
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+        background: #f3f3f3;
         text-align: center;
+        color: #222;
+    }
+    .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 25px 20px;
+    }
+    img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 20px;
     }
     h1 {
-        margin: 0 0 10px;
-        color: var(--lacivert);
-        font-size: 30px;
-        letter-spacing: 1px;
+        margin: 5px 0;
+        font-size: 28px;
     }
-    .alt-baslik {
-        margin-bottom: 28px;
-        color: var(--mavi);
+    .subtitle {
+        color: #666;
+        margin-bottom: 25px;
+    }
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .copy-button,
+    .button {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 10px;
+        background: #222;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .success {
+        color: green;
         font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 0.5px;
-    }
-    .isim {
-        color: var(--metin);
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 22px;
-    }
-    .etiket {
-        margin-bottom: 8px;
-        color: var(--gri);
-        font-size: 13px;
-        font-weight: bold;
-        letter-spacing: 1px;
+        margin-top: 8px;
+        display: none;
     }
     .iban {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        width: 100%;
-        padding: 17px 16px;
-        border: 2px solid transparent;
-        border-radius: 12px;
-        background: var(--acik-mavi);
-        color: var(--lacivert);
+        font-weight: bold;
         font-size: 16px;
-        font-weight: bold;
-        line-height: 1.4;
-        word-break: break-word;
-        cursor: pointer;
-        transition: background-color 0.2s ease, border-color 0.2s ease,
-                    box-shadow 0.2s ease, transform 0.2s ease;
-    }
-    .iban:hover {
-        background: #dceeff;
-        border-color: var(--mavi);
-        box-shadow: 0 5px 14px rgba(23, 105, 170, 0.2);
-    }
-    .iban:focus {
-        outline: none;
-        border-color: var(--kirmizi);
-        box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.2);
-    }
-    .iban:active {
-        transform: scale(0.98);
-        background: #cfe7ff;
-    }
-    .iban-metni {
-        flex: 1;
-        text-align: left;
-    }
-    .kopya-ikonu {
-        flex: 0 0 auto;
-        width: 24px;
-        height: 24px;
-        color: var(--kirmizi);
-    }
-    .mesaj {
-        min-height: 20px;
+        word-break: break-all;
         margin-top: 12px;
-        color: var(--basari);
-        font-size: 14px;
+    }
+    .bank {
+        color: #666;
+        margin-top: 8px;
         font-weight: bold;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    .mesaj.goster {
-        opacity: 1;
-    }
-    .mesaj.hata {
-        color: var(--hata);
     }
 </style>
 </head>
 <body>
-<main class="kart">
+<div class="container">
+    <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=900&q=80"
+         alt="Otomotiv">
     <h1>UĞUR OTOMOTİV</h1>
-<div class="alt-baslik">
-    GÜVENİLİR OTOMOTİV HİZMETLERİ
+    <div class="subtitle">GÜVENİLİR OTOMOTİV HİZMETLERİ</div>
+    <!-- İsim -->
+    <div class="card">
+        <strong>İsim</strong>
+        <div style="font-size:20px; margin-top:8px;">Uğur Otomotiv</div>
+        <button class="copy-button" onclick="copyText('Uğur Otomotiv', 'nameSuccess')">
+            İsmi Kopyala
+        </button>
+        <div id="nameSuccess" class="success">
+            İsim kopyalandı ✓
+        </div>
+    </div>
+    <!-- IBANLAR -->
+    <div class="card">
+        <strong>Banka Bilgileri</strong>
+        <!-- Akbank -->
+        <div class="bank">
+            Akbank Sultanbeyli Şubesi
+        </div>
+        <div class="iban">
+            TR20 0004 6006 3888 8000 0502 33
+        </div>
+        <button class="copy-button"
+                onclick="copyText('TR200004600638888000050233', 'ibanSuccess1')">
+            Akbank IBAN'ı Kopyala
+        </button>
+        <div id="ibanSuccess1" class="success">
+            IBAN kopyalandı ✓
+        </div>
+        <!-- Türkiye Finans -->
+        <div class="bank" style="margin-top:25px;">
+            Türkiye Finans
+        </div>
+        <div class="iban">
+            TR12 0002 0600 1310 4009 8750 001
+        </div>
+        <button class="copy-button"
+                onclick="copyText('TR1200020600131040098750001', 'ibanSuccess2')">
+            Türkiye Finans IBAN'ı Kopyala
+        </button>
+        <div id="ibanSuccess2" class="success">
+            IBAN kopyalandı ✓
+        </div>
+    </div>
+    <!-- Telefonlar -->
+    <div class="card">
+        <strong>Telefon</strong>
+        <a class="button" href="tel:+905326031821">
+            📱 0532 603 18 21
+        </a>
+        <a class="button" href="tel:+902164966452">
+            ☎️ 0216 496 64 52
+        </a>
+    </div>
+    <!-- E-posta -->
+    <div class="card">
+        <strong>E-posta</strong>
+        <a class="button" href="mailto:ugencol@hotmail.com">
+            ✉️ ugencol@hotmail.com
+        </a>
+    </div>
+    <!-- Konum -->
+    <div class="card">
+        <a class="button"
+           href="https://maps.app.goo.gl/Min1gendfTK84PFs8?g_st=ic"
+           target="_blank">
+            📍 Google Maps'te Konumu Aç
+        </a>
+    </div>
+    <!-- Instagram -->
+    <div class="card">
+        <a class="button"
+           href="https://www.instagram.com/aku_dunyasi_ugur_otomotiv?stkn=MTQxMGl5aHIxZzE1OQ=="
+           target="_blank">
+            📷 Instagram
+        </a>
+    </div>
 </div>
-<div class="isim">
-    Uğur Otomotiv
-</div>
-<div class="etiket">
-    IBAN'I KOPYALAMAK İÇİN DOKUNUN
-</div>
-<button
-    class="iban"
-    type="button"
-    aria-label="IBAN'ı kopyala"
-    onclick="ibanKopyala()"
->
-    <span class="iban-metni" id="ibanMetni"></span>
-    <svg class="kopya-ikonu" viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="2"
-         stroke-linecap="round" stroke-linejoin="round"
-         aria-hidden="true">
-        <rect x="9" y="9" width="11" height="11" rx="2"></rect>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-    </svg>
-</button>
-<div class="mesaj" id="mesaj" role="status" aria-live="polite"></div>
-</main>
 <script>
-    const iban = "TR00 0000 0000 0000 0000 0000 00";
-    const mesaj = document.getElementById("mesaj");
-    const ibanMetni = document.getElementById("ibanMetni");
-    ibanMetni.textContent = iban;
-    function mesajGoster(metin, hata = false) {
-        mesaj.textContent = metin;
-        mesaj.classList.toggle("hata", hata);
-        mesaj.classList.add("goster");
-        clearTimeout(mesaj.zamanlayici);
-        mesaj.zamanlayici = setTimeout(function () {
-            mesaj.classList.remove("goster");
-        }, 3000);
-    }
-    function ibanKopyala() {
-        const kopyalanacakIban = iban.replace(/\s/g, "");
-        if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
-            navigator.clipboard.writeText(kopyalanacakIban)
-                .then(function () {
-                    mesajGoster("IBAN kopyalandı ✓");
-                })
-                .catch(function () {
-                    eskiKopyalamaYontemi(kopyalanacakIban);
-                });
-        } else {
-            eskiKopyalamaYontemi(kopyalanacakIban);
-        }
-    }
-    function eskiKopyalamaYontemi(metin) {
-        const geciciAlan = document.createElement("textarea");
-        geciciAlan.value = metin;
-        geciciAlan.setAttribute("readonly", "");
-        geciciAlan.style.position = "fixed";
-        geciciAlan.style.left = "-9999px";
-        geciciAlan.style.top = "0";
-        geciciAlan.style.opacity = "0";
-        document.body.appendChild(geciciAlan);
-        geciciAlan.focus();
-        geciciAlan.select();
-        geciciAlan.setSelectionRange(0, geciciAlan.value.length);
-        let basarili = false;
-        try {
-            basarili = document.execCommand("copy");
-        } catch (hata) {
-            basarili = false;
-        }
-        document.body.removeChild(geciciAlan);
-        if (basarili) {
-            mesajGoster("IBAN kopyalandı ✓");
-        } else {
-            mesajGoster(
-                "IBAN otomatik kopyalanamadı. Lütfen IBAN'a basılı tutup Kopyala'yı seçin.",
-                true
-            );
-        }
-    }
+function copyText(text, successId) {
+    navigator.clipboard.writeText(text).then(function() {
+        const success = document.getElementById(successId);
+        success.style.display = "block";
+        setTimeout(function() {
+            success.style.display = "none";
+        }, 2000);
+    }).catch(function() {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        const success = document.getElementById(successId);
+        success.style.display = "block";
+        setTimeout(function() {
+            success.style.display = "none";
+        }, 2000);
+    });
+}
 </script>
 </body>
 </html>
